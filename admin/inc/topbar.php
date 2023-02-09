@@ -247,11 +247,11 @@
                   aria-expanded="false"
                 >
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >Douglas McGee</span
+                    ><?php echo $status['user_name']." ".$status['user_surname']; ?></span
                   >
                   <img
                     class="img-profile rounded-circle"
-                    src="img/undraw_profile.svg"
+                    src="uploads/<?php echo $status['user_pic'] ?>"
                   />
                 </a>
                 <!-- Dropdown - User Information -->

@@ -1,3 +1,32 @@
+<?php 
+
+session_start();
+require_once "./dbconfig/dbconfig.php";
+
+$query = $conn->prepare("SELECT * FROM users WHERE user_email=:email");
+$query->bindParam("email", $_SESSION['email']);
+$query->execute(); 
+ $status = $query->fetch();
+
+$user = $_SESSION['username'];
+
+$isAdmin = $status['user_status'];
+
+$admin;
+
+
+
+if(!$user){
+  header("location: ../login.php");
+}
+
+if($isAdmin == (bool)"1"){
+  $admin = false;
+} else {
+  $admin = true;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
